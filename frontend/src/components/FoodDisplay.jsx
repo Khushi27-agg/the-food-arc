@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
-import { foodData } from "../data/foodData";
 
 function FoodDisplay({ category, search }) {
-  const { cartItems, setCartItems } = useContext(StoreContext);
+  const { cartItems, setCartItems, foodList } = useContext(StoreContext);
 
-  const filteredFoods = foodData.filter((food) => {
+  const filteredFoods = foodList.filter((food) => {
     const matchesCategory = category === "All" || food.category === category;
 
     const matchesSearch = food.name
@@ -22,8 +21,8 @@ function FoodDisplay({ category, search }) {
         margin: "50px auto",
       }}
     >
-      {" "}
       <h2>Top Dishes Near You</h2>
+
       <div
         style={{
           display: "grid",
@@ -34,7 +33,7 @@ function FoodDisplay({ category, search }) {
       >
         {filteredFoods.map((food) => (
           <div
-            key={food.id}
+            key={food._id}
             style={{
               border: "1px solid #ddd",
               borderRadius: "15px",
@@ -43,7 +42,10 @@ function FoodDisplay({ category, search }) {
             }}
           >
             <img
-              src={food.image}
+              src={
+                food.image ||
+                "https://images.unsplash.com/photo-1513104890138-7c749659a591"
+              }
               alt={food.name}
               style={{
                 width: "100%",
