@@ -1,6 +1,7 @@
 function Footer() {
   return (
     <footer
+      id="footer"
       style={{
         background: "#222",
         color: "white",

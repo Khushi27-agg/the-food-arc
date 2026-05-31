@@ -25,7 +25,7 @@ function Navbar() {
           cursor: "pointer",
         }}
       >
-        <li>Home</li>
+        <li><Link to="/" style={{ textDecoration: "none", color: "inherit" }}>Home</Link></li>
         <li>Menu</li>
         <li>Mobile App</li>
         <li>Contact Us</li>

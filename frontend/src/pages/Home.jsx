@@ -13,8 +13,9 @@ function Home() {
     <>
       <Navbar />
       <Header />
-      <Footer />
-      <ExploreMenu category={category} setCategory={setCategory} />
+      <div id="menu">
+        <ExploreMenu category={category} setCategory={setCategory} />
+      </div>
 
       <input
         type="text"
@@ -32,6 +33,7 @@ function Home() {
       />
 
       <FoodDisplay category={category} search={search} />
+      <Footer />
     </>
   );
 }
