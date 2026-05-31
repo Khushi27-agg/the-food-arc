@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
 
+const linkStyle = { textDecoration: "none", color: "inherit" };
+
 function Navbar() {
   const { cartItems } = useContext(StoreContext);
 
@@ -25,10 +27,10 @@ function Navbar() {
           cursor: "pointer",
         }}
       >
-        <li><Link to="/" style={{ textDecoration: "none", color: "inherit" }}>Home</Link></li>
-        <li>Menu</li>
-        <li>Mobile App</li>
-        <li>Contact Us</li>
+        <li><Link to="/" style={linkStyle}>Home</Link></li>
+        <li><Link to="/menu" style={linkStyle}>Menu</Link></li>
+        <li><Link to="/mobile-app" style={linkStyle}>Mobile App</Link></li>
+        <li><Link to="/contact" style={linkStyle}>Contact Us</Link></li>
       </ul>
 
       <div

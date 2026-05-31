@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
 
-function MobileApp() {
+function Menu() {
   return (
-    <div style={{ textAlign: "center", padding: "100px 20px" }}>
-      <div style={{ fontSize: "64px", marginBottom: "20px" }}>📱</div>
+    <div
+      style={{
+        textAlign: "center",
+        padding: "100px 20px",
+      }}
+    >
+      <div style={{ fontSize: "64px", marginBottom: "20px" }}>🍽️</div>
       <h1 style={{ fontSize: "42px", color: "#333", marginBottom: "12px" }}>
         Coming Soon
       </h1>
       <p style={{ fontSize: "18px", color: "#777", marginBottom: "36px" }}>
-        The Food Arc app for Android &amp; iOS is on its way. Stay tuned!
+        Our full menu page is under construction. Check back soon!
       </p>
       <Link to="/">
         <button
@@ -29,4 +34,4 @@ function MobileApp() {
   );
 }
 
-export default MobileApp;
+export default Menu;

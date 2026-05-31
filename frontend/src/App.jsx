@@ -7,6 +7,7 @@ import PlaceOrder from "./pages/PlaceOrder";
 import OrderSuccess from "./pages/OrderSuccess";
 import MobileApp from "./pages/MobileApp";
 import Contact from "./pages/Contact";
+import Menu from "./pages/Menu";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/success" element={<OrderSuccess />} />
         <Route path="/mobile-app" element={<MobileApp />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/menu" element={<Menu />} />
       </Routes>
     </BrowserRouter>
   );
