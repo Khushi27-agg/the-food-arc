@@ -1,49 +1,29 @@
 require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const connectDB = require("./config/db");
 const foodRoute = require("./routes/foodRoute");
+const userRoute = require("./routes/userRoute");
+const orderRoute = require("./routes/orderRoute");
 
 const app = express();
+
 connectDB();
+
 app.use(cors());
 app.use(express.json());
-
-const foodData = [
-  {
-    id: 1,
-    name: "Margherita Pizza",
-    price: 299,
-    category: "Pizza",
-  },
-  {
-    id: 2,
-    name: "Cheese Burger",
-    price: 199,
-    category: "Burger",
-  },
-  {
-    id: 3,
-    name: "White Sauce Pasta",
-    price: 249,
-    category: "Pasta",
-  },
-];
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.get("/", (req, res) => {
   res.send("The Food Arc Backend Running 🚀");
 });
 
 app.use("/api/food", foodRoute);
+app.use("/api/user", userRoute);
+app.use("/api/order", orderRoute);
 
-app.listen(4000, () => {
-  console.log("Server running on port 4000");
-});
-
-app.post("/api/order/place", (req, res) => {
-  res.json({
-    success: true,
-    message: "Order placed successfully",
-  });
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

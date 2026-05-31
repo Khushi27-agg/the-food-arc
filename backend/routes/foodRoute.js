@@ -1,34 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const Food = require("../models/foodModel");
+const multer = require("multer");
+const path = require("path");
+const { listFood, addFood, removeFood } = require("../controllers/foodController");
 
-// Get all foods
-router.get("/list", async (req, res) => {
-  const foods = await Food.find({});
-  res.json(foods);
+const storage = multer.diskStorage({
+  destination: "uploads/",
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
 });
 
-// Add food
-router.post("/add", async (req, res) => {
-  try {
-    const food = new Food({
-      name: req.body.name,
-      price: req.body.price,
-      category: req.body.category,
-    });
+const upload = multer({ storage });
 
-    await food.save();
-
-    res.json({
-      success: true,
-      message: "Food Added",
-    });
-  } catch (error) {
-    res.json({
-      success: false,
-      message: error.message,
-    });
-  }
-});
+router.get("/list", listFood);
+router.post("/add", upload.single("image"), addFood);
+router.delete("/remove/:id", removeFood);
 
 module.exports = router;
