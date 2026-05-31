@@ -1,10 +1,22 @@
-import Home from './pages/Home';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import PlaceOrder from "./pages/PlaceOrder";
+import OrderSuccess from "./pages/OrderSuccess";
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/place-order" element={<PlaceOrder />} />
+        <Route path="/success" element={<OrderSuccess />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
