@@ -23,7 +23,7 @@ app.use("/api/food", foodRoute);
 app.use("/api/user", userRoute);
 app.use("/api/order", orderRoute);
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

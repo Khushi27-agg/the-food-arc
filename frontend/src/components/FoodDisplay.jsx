@@ -31,9 +31,9 @@ function FoodDisplay({ category, search }) {
           marginTop: "20px",
         }}
       >
-        {filteredFoods.map((food) => (
+        {filteredFoods.map((food, index) => (
           <div
-            key={food._id}
+            key={food._id || food.id || index}
             style={{
               border: "1px solid #ddd",
               borderRadius: "15px",
